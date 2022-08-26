@@ -3,7 +3,7 @@ from sys import exit
 pygame.init()
 
 # Screen Setup
-width, height = 551, 630
+width, height = 550, 630
 screen = pygame.display.set_mode((width, height))
 fps = 240 #30 for extra easy mode 60 for easy 120 for medium 240 for hard and so on.....
 pygame.display.set_caption('Try Not To Hit The Ground!')
