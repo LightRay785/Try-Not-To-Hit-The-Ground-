@@ -20,7 +20,7 @@ class Bird(pygame.sprite.Sprite):
     def update(self, key): 
         self.velocity += 0.5
         if self.velocity >= 6:
-            self.vel = 7
+            self.velocity = 7
         if self.rect.y < 500: self.rect.y += self.velocity
         if key[pygame.K_SPACE] and self.rect.y > 0:
             self.velocity = -7
