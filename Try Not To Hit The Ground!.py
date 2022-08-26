@@ -5,7 +5,7 @@ pygame.init()
 # Screen Setup
 width, height = 551, 630
 screen = pygame.display.set_mode((width, height))
-fps = 240 #30 for easy mode 60 for medium 120 for hard 240 for extra hard and so on.....
+fps = 240 #30 for extra easy mode 60 for easy 120 for medium 240 for hard and so on.....
 pygame.display.set_caption('Try Not To Hit The Ground!')
 flappy_bird = pygame.image.load('birdy.png')
 sky = pygame.image.load('background.png')
