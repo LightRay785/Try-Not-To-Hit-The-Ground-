@@ -25,20 +25,12 @@ class Bird(pygame.sprite.Sprite):
         if key[pygame.K_SPACE] and self.rect.y > 0:
             self.velocity = -7
 
-class Pipe(pygame.sprite.Sprite):
-    def __init__(self):
-        super().__init__(self)
-        self.rect.x -= 1
-        if self.rect.x <= -width: self.kill
-
-
 clock = pygame.time.Clock()
 pygame.transform.scale(ground, (ground.get_width(), 720))
 
 bird = pygame.sprite.GroupSingle()
 bird.add(Bird())
 x = 0
-pipe = pygame.sprite.Group()
 pygame.time.delay(1000)
 while True:
     for event in pygame.event.get():
@@ -47,8 +39,6 @@ while True:
     screen.blit(sky, (0,0))
     screen.blit(ground, (0, 520))
     key = pygame.key.get_pressed()
-    pipe.draw(screen)
-    pipe.update()
     bird.draw(screen)
     bird.update(key)
     clock.tick(fps)
