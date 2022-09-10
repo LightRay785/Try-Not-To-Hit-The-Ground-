@@ -79,7 +79,7 @@ while True:
                 exit()
         screen.blit(sky, (0,0))
         screen.blit(ground, (0, 520))
-        screen.blit(line, (0, -315))
+        screen.blit(line, (0, -315)) # BLIT THE LIGHTSABERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
         key = pygame.key.get_pressed()
         bird.draw(screen)
         bird.update(key)
