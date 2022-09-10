@@ -43,25 +43,28 @@ class Bird(Player):
         self.rect = self.image.get_rect()
         self.rect.center = 100, 315
         self.velocity = 0
-
+        self.rect.x = self.image.get_width()
+        self.rect.y = self.image.get_height()
     def update(self, key):
         self.image_index += 1
         self.animate()
 
         self.velocity += 0.5
         # Restricts Player to go higher than the screen
-        screenRect = screen.get_rect()
         if self.velocity >= 6:
             self.vel = 7
         if self.rect.y < 500:
             self.rect.y += self.velocity
         if self.rect.y == 0:
             pygame.time.delay(1000)
-            pygame.quit()
+            exit()
 
         # Jump
         if key[pygame.K_SPACE] and self.rect.y > 0:
             self.velocity = -7
+    def is_collide_with_the_ground(self): # yes yes i know its a ridiculously long name
+        if self.rect.x == 0 and self.rect.y == 520: 
+            return True
 
 clock = pygame.time.Clock()
 pygame.transform.scale(ceiling, (ceiling.get_width(), 720))
@@ -69,10 +72,8 @@ pygame.transform.scale(ground, (ground.get_width(), 720))
 
 bird = pygame.sprite.GroupSingle()
 bird.add(Bird())
-x = 0
 pygame.time.delay(1000)
-try:
-    while True:
+while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
@@ -83,10 +84,10 @@ try:
         bird.draw(screen)
         bird.update(key)
         clock.tick(fps)
+        if Bird().is_collide_with_the_ground():
+            pygame.time.delay(1000)
+            exit()
         pygame.display.flip()
     
-except: pass
+ 
 
-    
-
-    
